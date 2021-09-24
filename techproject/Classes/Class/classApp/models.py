@@ -22,9 +22,8 @@ TYPE_LENGTH = {
     (2, 2),
 }
 
-"""I am attempting to call on this odject and have it looped so that the fields
+"""I am attempting to call on this object and have it looped so that the fields
  allow the user to delete and add the selections to the DB"""
-
 
 
 class djangoClasses(models.Model):
@@ -33,7 +32,7 @@ class djangoClasses(models.Model):
     Instructor_Name = models.CharField(max_length=60, default="")
     Duration = models.FloatField(default=0, choices=TYPE_LENGTH)
 
-"""These are the choices and object # 2"""
+
 
 TYPE_HOUSING = {
     ('On Campus', 'On Campus'),
@@ -50,37 +49,18 @@ class Housing(models.Model):
     Title = models.CharField(max_length=60, default="", choices= TYPE_HOUSING)
     Roommates = models.CharField(max_length=60, default="", choices= TYPE_ROOMATE)
 
-"""These are the choices and object # 3"""
+obj1 = djangoClasses(Title='SQL', Course_Number=1, Instructor_Name="Dr Arness", Duration=6)
+obj1.save()
 
+obj2 = djangoClasses(Title='Python', Course_Number=2, Instructor_Name="Professor Parks", Duration=2)
+obj2.save()
 
-TYPE_MAIN = {
-    ('Chicken', 'Chicken'),
-    ('Beef', 'Beef'),
-    ('Pork','Pork'),
-    ('Vegetarian', 'Vegetarian'),
-}
+obj3 = djangoClasses(Title='C#', Course_Number=4, Instructor_Name="Mrs. McCoy", Duration=1)
+obj3.save
 
-TYPE_DRINKS = {
-    ('Water', 'Water'),
-    ('Milk', 'Milk'),
-    ('Juice', 'Juice'),
-    ('Soda', 'Soda'),
-}
+objects = models.Manager()
 
-TYPE_SIDES = {
-    ('Salad', 'Salad'),
-    ('Mac and Cheese', 'Mac and Cheese'),
-    ('Vegetable', 'Vegetable'),
-}
-
-class Meal(models.Model):
-    Main = models.CharField(max_length=60, default="", choices=TYPE_MAIN)
-    Drinks = models.CharField(max_length=60, default="", choices=TYPE_DRINKS)
-    Sides = models.CharField(max_length=60, default="", choices=TYPE_SIDES)
-
-    objects = models.Manager()
-
-    def __str__(self):
-        return self.Title
+def __str__(self):
+    return self.Title
 
 

@@ -8,7 +8,4 @@ from.models import Housing
 
 admin.site.register(Housing)
 
-from.models import Meal
-
-admin.site.register(Meal)
 
